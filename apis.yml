@@ -1,0 +1,143 @@
+aid: papago
+name: Papago
+description: Naver Papago translation REST API for translating text between Korean,
+  English, Japanese, Chinese, and other Asian and European languages using Neural
+  Machine Translation (NMT) algorithms. The service offers text translation, document
+  translation, website translation, language detection, and glossary management, supporting
+  29 language pairs with high accuracy and no data retention for user privacy.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/papago/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Translation
+  - Natural Language Processing
+  - Machine Translation
+  - Neural Machine Translation
+  - Korean
+  - Asian Languages
+  - Localization
+  - Language Detection
+apis:
+  - aid: papago:papago-nmt-translation
+    name: Papago NMT Translation API
+    description: Neural Machine Translation API for translating text between 29 language
+      pairs including Korean, English, Japanese, Chinese (Simplified and Traditional),
+      Vietnamese, Thai, Indonesian, French, Spanish, Russian, German, and Italian.
+      Supports up to 5,000 characters per request with optional glossary and honorific
+      language modes.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    baseURL: https://papago.apigw.ntruss.com/nmt/v1
+    tags:
+      - Translation
+      - Neural Machine Translation
+      - Korean
+      - Asian Languages
+    properties:
+      - type: Documentation
+        url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+      - type: OpenAPI
+        url: https://github.com/naver/naver-openapi-guide/blob/master/naver-openapi-swagger.yaml
+    contact:
+      - FN: Naver Cloud Platform Support
+        url: https://www.ncloud.com/support/question
+  - aid: papago:papago-language-detection
+    name: Papago Language Detection API
+    description: Automatically detects the language of input text, supporting 15
+      languages including Korean, English, Japanese, Chinese, Vietnamese, Thai, Indonesian,
+      French, Spanish, Russian, German, Italian, Portuguese, and Hindi. Language detection
+      is provided at no charge.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    baseURL: https://papago.apigw.ntruss.com/langs/v1
+    tags:
+      - Language Detection
+      - Natural Language Processing
+    properties:
+      - type: Documentation
+        url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    contact:
+      - FN: Naver Cloud Platform Support
+        url: https://www.ncloud.com/support/question
+  - aid: papago:papago-document-translation
+    name: Papago Document Translation API
+    description: Translates documents while preserving their original layout, supporting
+      MS Office formats (DOCX, PPTX, XLSX), PDF, and Korean Hangul (HWP v5.0+) files
+      up to 100 MB and 300,000 characters per document across 15 language pairs.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    baseURL: https://papago.apigw.ntruss.com/doc-trans/v1
+    tags:
+      - Document Translation
+      - File Translation
+    properties:
+      - type: Documentation
+        url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    contact:
+      - FN: Naver Cloud Platform Support
+        url: https://www.ncloud.com/support/question
+  - aid: papago:papago-website-translation
+    name: Papago Website Translation API
+    description: Detects and translates HTML documents and web elements using proprietary
+      tag restoration technology for improved translation accuracy across websites
+      and web applications, supporting 15 language pairs.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    baseURL: https://papago.apigw.ntruss.com/web-trans/v1
+    tags:
+      - Website Translation
+      - HTML Translation
+      - Web Localization
+    properties:
+      - type: Documentation
+        url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    contact:
+      - FN: Naver Cloud Platform Support
+        url: https://www.ncloud.com/support/question
+  - aid: papago:papago-glossary
+    name: Papago Glossary API
+    description: Manages custom terminology dictionaries for contextually appropriate
+      translations. Allows registration and retrieval of glossaries with up to 20
+      terms per request, applied across all Papago translation services for consistent
+      domain-specific terminology.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    baseURL: https://papago.apigw.ntruss.com/glossary
+    tags:
+      - Glossary
+      - Terminology
+      - Custom Dictionary
+    properties:
+      - type: Documentation
+        url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    contact:
+      - FN: Naver Cloud Platform Support
+        url: https://www.ncloud.com/support/question
+common:
+  - type: Website
+    url: https://www.ncloud.com/v2/product/aiService/papagoTranslation
+  - type: Documentation
+    url: https://guide.ncloud-docs.com/docs/en/papagotranslation-overview
+  - type: GitHubOrg
+    url: https://github.com/NaverCloudPlatform
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/navercloud
+  - type: Blog
+    url: https://medium.com/naver-cloud
+  - type: Pricing
+    url: https://www.ncloud.com/charge/calc
+  - type: StatusPage
+    url: https://www.ncloud.com/v2/serviceStatus
+  - type: X
+    url: https://x.com/NaverCloudPlatf
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/papago/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/papago/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/papago/refs/heads/main/finops/finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,66 @@
+finops:
+  - name: Character-Based Billing
+    description: Papago Translation API charges are primarily based on the number
+      of characters processed for text translation, document translation, and website
+      translation API calls. Language detection is free of charge regardless of volume.
+      Costs are calculated per character processed and billed monthly through NAVER
+      Cloud Platform.
+    url: https://www.ncloud.com/charge/calc
+    type: usage-based
+    unit: character
+    notes: Use the NAVER Cloud Platform pricing calculator to estimate monthly costs
+      based on expected translation volume. Language detection incurs no cost and
+      does not count toward character billing.
+  - name: Language Detection No Charge
+    description: Language detection API calls do not incur any charges regardless
+      of the volume of requests or characters submitted. This feature can be used
+      freely to detect the source language before initiating a billable translation
+      request.
+    url: https://guide.ncloud-docs.com/docs/en/papagotranslation-overview
+    type: free
+    unit: request
+    notes: No cost for language detection. Consider using language detection to validate
+      input language and avoid unnecessary translation API calls.
+  - name: Application-Level Cost Controls
+    description: Each registered application can have independent daily and monthly
+      usage limits configured through the NAVER Cloud Platform console. Setting these
+      limits prevents unexpected cost overruns and ensures budget predictability across
+      multiple applications or teams.
+    url: https://guide.ncloud-docs.com/docs/en/papagotranslation-overview
+    type: cost-control
+    unit: character
+    notes: Set per-application daily and monthly limits in the NAVER Cloud Platform
+      console under the AI Services > Papago Translation section. Alerts and notifications
+      can be configured for usage thresholds.
+  - name: Usage Monitoring and Statistics
+    description: NAVER Cloud Platform provides usage statistics dashboards for monitoring
+      API call volumes, character counts, and cost trends per application. Real-time
+      and historical usage data helps track spending and optimize API usage patterns.
+    url: https://guide.ncloud-docs.com/docs/en/papagotranslation-overview
+    type: monitoring
+    unit: request
+    notes: Access usage statistics through the NAVER Cloud Platform console under
+      the Papago Translation service section. Review usage regularly to identify optimization
+      opportunities.
+  - name: Annual Contract Discount
+    description: Enterprise customers committing to an annual contract may receive
+      a discount compared to month-to-month pricing. Contact NAVER Cloud Platform
+      enterprise sales to negotiate pricing, volume discounts, and custom SLA terms
+      for high-volume translation workloads.
+    url: https://www.ncloud.com/support/question
+    type: discount
+    unit: month
+    notes: Annual contracts typically offer approximately 20% discount versus monthly
+      billing. Minimum volume commitments may apply. Contact enterprise sales for
+      custom quotes.
+  - name: Support Limit Increases
+    description: If your application requires translation capacity beyond the default
+      limits provided by NAVER Cloud Platform, contact customer support to request
+      increased quotas. Enterprise-level capacity is available for high-volume translation
+      workloads.
+    url: https://www.ncloud.com/support/question
+    type: capacity
+    unit: character
+    notes: Default rate limits can be increased by contacting NAVER Cloud Platform
+      support. Provide expected usage volumes and use case details when requesting
+      limit increases.

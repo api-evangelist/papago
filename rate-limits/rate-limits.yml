@@ -1,0 +1,76 @@
+rateLimits:
+  - name: Text Translation Character Limit
+    description: Maximum number of characters allowed per individual text translation
+      API call. Requests exceeding this limit will be rejected. Split large texts
+      into multiple requests if needed.
+    url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt-translation
+    limit: 5000
+    unit: characters
+    period: request
+    scope: per-request
+    notes: The text parameter in each POST request to /nmt/v1/translation accepts
+      a maximum of 5,000 characters. UTF-8 encoding required.
+  - name: Language Detection Character Limit
+    description: Maximum number of characters allowed per language detection API call.
+      The language detection endpoint identifies the source language of the input
+      text and supports 15 languages.
+    url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    limit: 5000
+    unit: characters
+    period: request
+    scope: per-request
+    notes: Language detection requests are capped at 5,000 characters. Language detection
+      is provided at no cost regardless of character volume.
+  - name: Document Translation File Size Limit
+    description: Maximum file size allowed for document translation requests. Supported
+      file formats include DOCX, PPTX, XLSX, PDF, and Korean HWP (v5.0+). Files
+      exceeding this limit must be split before submission.
+    url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    limit: 100
+    unit: MB
+    period: request
+    scope: per-request
+    notes: Document translation supports files up to 100 MB per request.
+  - name: Document Translation Character Limit
+    description: Maximum number of characters within a document submitted for document
+      translation. Documents containing more than this limit will not be processed.
+    url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    limit: 300000
+    unit: characters
+    period: request
+    scope: per-request
+    notes: Document content is capped at 300,000 characters per translation request
+      regardless of file size.
+  - name: Glossary Terms Per Request
+    description: Maximum number of terminology entries that can be applied in a single
+      glossary lookup or applied per translation request. Custom glossaries are used
+      to maintain consistent domain-specific terminology across translations.
+    url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
+    limit: 20
+    unit: terms
+    period: request
+    scope: per-request
+    notes: Up to 20 glossary terms can be applied per translation request using the
+      glossaryKey parameter.
+  - name: Application Monthly Usage Limit
+    description: Configurable monthly usage cap per registered application. Users
+      can set a monthly character or call limit for each application through the NAVER
+      Cloud Platform console to control costs and prevent unexpected overages.
+    url: https://guide.ncloud-docs.com/docs/en/papagotranslation-overview
+    limit: null
+    unit: characters
+    period: month
+    scope: per-application
+    notes: Monthly limits are user-configurable per application in the NAVER Cloud
+      Platform console. Default limits apply and can be increased by contacting support.
+  - name: Application Daily Usage Limit
+    description: Configurable daily usage cap per registered application. Daily limits
+      reset at midnight KST (Korea Standard Time) and can be adjusted in the NAVER
+      Cloud Platform console.
+    url: https://guide.ncloud-docs.com/docs/en/papagotranslation-overview
+    limit: null
+    unit: characters
+    period: day
+    scope: per-application
+    notes: Daily limits are user-configurable per application. Contact NAVER Cloud
+      Platform support if default limits are insufficient for your use case.

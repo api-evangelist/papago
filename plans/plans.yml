@@ -1,0 +1,68 @@
+plans:
+  - name: Free Tier
+    description: Entry-level access to Papago Translation API with a monthly character
+      allowance at no cost. Suitable for development, testing, and low-volume translation
+      workloads. Access provided through the NAVER Cloud Platform console after application
+      registration.
+    url: https://www.ncloud.com/charge/calc
+    price: 0
+    currency: USD
+    unit: month
+    features:
+      - Text translation API access
+      - Language detection (no charge)
+      - Up to 5,000 characters per API call
+      - 15 supported languages for detection
+      - 29 language pairs for NMT text translation
+      - Access via NAVER Cloud Platform console
+    rateLimit:
+      requests: null
+      unit: month
+      notes: Monthly character quota applies; configure daily or monthly limits per
+        application in the console.
+  - name: Pay-as-You-Go
+    description: Usage-based billing for Papago Translation API beyond the free tier,
+      charged per character translated. Billing covers text translation and document
+      translation API calls. Language detection incurs no charge. Ideal for variable
+      workloads with moderate to high translation volumes.
+    url: https://www.ncloud.com/charge/calc
+    price: null
+    currency: USD
+    unit: character
+    features:
+      - Text translation billed per character
+      - Document translation billed per character
+      - Website translation billed per character
+      - Language detection at no charge
+      - Glossary management included
+      - Adjustable daily and monthly usage limits per application
+      - Support for 29 language pairs (text), 15 language pairs (document/website)
+      - Documents up to 100 MB and 300,000 characters
+      - No user data storage or training data use
+    rateLimit:
+      requests: null
+      unit: month
+      notes: Set custom daily or monthly limits per application in the NAVER Cloud
+        Platform console. Contact support to increase default limits.
+  - name: Enterprise
+    description: Enterprise-grade Papago Translation API plan with a fixed monthly
+      fee, priority support, and high-volume translation capacity. Includes volume
+      discounts for annual commitments. Contact NAVER Cloud Platform sales for custom
+      pricing and SLA terms.
+    url: https://www.ncloud.com/support/question
+    price: null
+    currency: USD
+    unit: month
+    features:
+      - Fixed monthly fee with high character allowance
+      - Annual contract discount available
+      - Custom glossary management at scale
+      - Priority customer support
+      - Dedicated account management
+      - SLA guarantees
+      - All API capabilities included
+    rateLimit:
+      requests: null
+      unit: month
+      notes: Custom rate limits negotiated per contract. Contact NAVER Cloud Platform
+        enterprise sales.
