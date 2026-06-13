@@ -1,0 +1,73 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "naver": "https://developers.naver.com/vocab/",
+    "papago": "https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt#",
+
+    "TranslationRequest": "papago:TranslationRequest",
+    "TranslationResponse": "papago:TranslationResponse",
+    "RomanizationResponse": "papago:RomanizationResponse",
+
+    "source": {
+      "@id": "papago:sourceLanguage",
+      "@type": "@vocab"
+    },
+    "target": {
+      "@id": "papago:targetLanguage",
+      "@type": "@vocab"
+    },
+    "text": {
+      "@id": "papago:inputText",
+      "@type": "schema:Text"
+    },
+    "translatedText": {
+      "@id": "papago:translatedText",
+      "@type": "schema:Text"
+    },
+    "engineType": {
+      "@id": "papago:engineType"
+    },
+    "srcLangType": {
+      "@id": "papago:sourceLanguageType"
+    },
+    "tarLangType": {
+      "@id": "papago:targetLanguageType"
+    },
+    "honorific": {
+      "@id": "papago:honorificMode"
+    },
+    "glossaryKey": {
+      "@id": "papago:glossaryKey"
+    },
+    "pivot": {
+      "@id": "papago:pivotLanguage"
+    },
+    "aResult": {
+      "@id": "papago:romanizationResults",
+      "@container": "@list"
+    },
+    "sFirstName": {
+      "@id": "papago:familyName",
+      "@type": "schema:Text"
+    },
+    "aItems": {
+      "@id": "papago:romanizationCandidates",
+      "@container": "@list"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "schema:Text"
+    },
+    "score": {
+      "@id": "papago:romanizationScore",
+      "@type": "schema:Number"
+    },
+    "errorCode": {
+      "@id": "papago:errorCode"
+    },
+    "errorMessage": {
+      "@id": "schema:description"
+    }
+  }
+}

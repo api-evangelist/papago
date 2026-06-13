@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/papago/main/json-schema/translation-response.json",
+  "title": "TranslationResponse",
+  "description": "Response from the Papago NMT or SMT translation endpoint",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "object",
+      "description": "Top-level response envelope",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "example": "response"
+        },
+        "@service": {
+          "type": "string",
+          "example": "naverservice.nmt.proxy"
+        },
+        "@version": {
+          "type": "string",
+          "example": "1.0.0"
+        },
+        "result": {
+          "type": "object",
+          "description": "Translation result object",
+          "properties": {
+            "srcLangType": {
+              "type": "string",
+              "description": "Detected or specified source language code",
+              "example": "ko"
+            },
+            "tarLangType": {
+              "type": "string",
+              "description": "Target language code",
+              "example": "en"
+            },
+            "translatedText": {
+              "type": "string",
+              "description": "The translated output text",
+              "example": "I am Korean."
+            },
+            "engineType": {
+              "type": "string",
+              "description": "Translation engine identifier",
+              "example": "NMT",
+              "enum": ["NMT", "SMT"]
+            },
+            "pivot": {
+              "type": "string",
+              "description": "Pivot language used if translation used an intermediate language"
+            },
+            "dict": {
+              "type": "object",
+              "description": "Dictionary entry for the source term (if available)"
+            },
+            "tarDict": {
+              "type": "object",
+              "description": "Dictionary entry for the target term (if available)"
+            }
+          },
+          "required": ["srcLangType", "tarLangType", "translatedText"]
+        }
+      },
+      "required": ["result"]
+    }
+  },
+  "required": ["message"]
+}

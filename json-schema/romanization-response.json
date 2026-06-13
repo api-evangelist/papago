@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/papago/main/json-schema/romanization-response.json",
+  "title": "RomanizationResponse",
+  "description": "Response from the Papago Korean name romanization endpoint",
+  "type": "object",
+  "properties": {
+    "aResult": {
+      "type": "array",
+      "description": "Array of romanization results for each name component",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sFirstName": {
+            "type": "string",
+            "description": "Romanized first (family) name component",
+            "example": "Kim"
+          },
+          "aItems": {
+            "type": "array",
+            "description": "Candidate romanizations with statistical scores",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Full romanized name candidate",
+                  "example": "Gildong Hong"
+                },
+                "score": {
+                  "type": "number",
+                  "description": "Statistical usage probability score (0-100)",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "example": 99.9
+                }
+              },
+              "required": ["name", "score"]
+            }
+          }
+        },
+        "required": ["sFirstName", "aItems"]
+      }
+    }
+  },
+  "required": ["aResult"]
+}

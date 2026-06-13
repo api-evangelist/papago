@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/papago/main/json-schema/translation-request.json",
+  "title": "TranslationRequest",
+  "description": "Request body for Papago NMT text translation",
+  "type": "object",
+  "required": ["source", "target", "text"],
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Source language code",
+      "enum": ["ko", "en", "ja", "zh-CN", "zh-TW", "vi", "th", "id", "fr", "es", "ru", "de", "it"],
+      "example": "ko"
+    },
+    "target": {
+      "type": "string",
+      "description": "Target language code",
+      "enum": ["ko", "en", "ja", "zh-CN", "zh-TW", "vi", "th", "id", "fr", "es", "ru", "de", "it"],
+      "example": "en"
+    },
+    "text": {
+      "type": "string",
+      "description": "Text to translate, UTF-8 only, max 5000 characters",
+      "maxLength": 5000,
+      "example": "나는 한국인입니다."
+    },
+    "honorific": {
+      "type": "string",
+      "description": "Whether to use honorific (formal) Korean for target output",
+      "enum": ["true", "false"],
+      "default": "false"
+    },
+    "glossaryKey": {
+      "type": "string",
+      "description": "Optional glossary key for custom terminology",
+      "example": "my-glossary-key"
+    }
+  },
+  "additionalProperties": false
+}

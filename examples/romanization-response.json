@@ -1,0 +1,17 @@
+{
+  "aResult": [
+    {
+      "sFirstName": "Hong",
+      "aItems": [
+        {
+          "name": "Hong Gildong",
+          "score": 99.9
+        },
+        {
+          "name": "Hong Kildong",
+          "score": 0.1
+        }
+      ]
+    }
+  ]
+}

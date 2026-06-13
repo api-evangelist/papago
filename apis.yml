@@ -39,7 +39,7 @@ apis:
       - type: Documentation
         url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
       - type: OpenAPI
-        url: https://github.com/naver/naver-openapi-guide/blob/master/naver-openapi-swagger.yaml
+        url: https://raw.githubusercontent.com/api-evangelist/papago/refs/heads/main/openapi/openapi.yaml
     contact:
       - FN: Naver Cloud Platform Support
         url: https://www.ncloud.com/support/question
