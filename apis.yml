@@ -116,6 +116,10 @@ apis:
       - FN: Naver Cloud Platform Support
         url: https://www.ncloud.com/support/question
 common:
+  - type: DomainSecurity
+    url: security/papago-domain-security.yml
+  - type: Authentication
+    url: authentication/papago-authentication.yml
   - type: Website
     url: https://www.ncloud.com/v2/product/aiService/papagoTranslation
   - type: Documentation

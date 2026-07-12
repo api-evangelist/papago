@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/openapi.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: clientId
+  type: apiKey
+  in: header
+  parameter: X-Naver-Client-Id
+  description: Client ID issued when registering an application on the Naver Developer Center.
+  sources:
+  - openapi/openapi.yaml
+- name: clientSecret
+  type: apiKey
+  in: header
+  parameter: X-Naver-Client-Secret
+  description: Client secret issued when registering an application on the Naver Developer Center.
+  sources:
+  - openapi/openapi.yaml
