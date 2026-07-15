@@ -116,6 +116,8 @@ apis:
       - FN: Naver Cloud Platform Support
         url: https://www.ncloud.com/support/question
 common:
+  - type: AgenticAccess
+    url: agentic-access/papago-agentic-access.yml
   - type: DomainSecurity
     url: security/papago-domain-security.yml
   - type: Authentication
