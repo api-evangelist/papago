@@ -1,0 +1,266 @@
+swagger: '2.0'
+info:
+  description: Naver Papago translation REST API for translating text between Korean, English, Japanese, Chinese, and other Asian and European languages using Neural Machine Translation (NMT) algorithms. Supports text translation, language detection, and romanization of Korean names.
+  version: 1.2.0
+  title: Translation Papago API
+  termsOfService: https://developers.naver.com/products/terms
+  contact:
+    name: Naver Cloud Platform Support
+    url: https://www.ncloud.com/support/question
+  license:
+    name: Naver Open API Terms
+    url: https://developers.naver.com/products/terms
+host: openapi.naver.com
+basePath: /
+schemes:
+- https
+tags:
+- name: Papago
+  description: Naver Machine Learning Translation APIs
+paths:
+  /v1/papago/n2mt:
+    post:
+      tags:
+      - Papago
+      summary: Papago NMT Translation
+      description: Translates text using Neural Machine Translation (NMT). Accepts source and target language codes along with the text to translate. Supports Korean, English, Japanese, Chinese (Simplified and Traditional), Vietnamese, Thai, Indonesian, French, Spanish, Russian, German, and Italian — up to 5,000 characters per request.
+      operationId: papago.nmt
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: source
+        in: formData
+        description: 'Source language code. Examples: ko (Korean), en (English), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional), ja (Japanese), vi (Vietnamese), th (Thai), id (Indonesian), fr (French), es (Spanish), ru (Russian), de (German), it (Italian)'
+        required: true
+        default: ko
+        type: string
+      - name: target
+        in: formData
+        description: Target language code. Same possible values as source. Must form a supported language pair.
+        required: true
+        default: en
+        type: string
+      - name: text
+        in: formData
+        description: Text to translate. UTF-8 encoding only. Maximum 5,000 characters per request.
+        required: true
+        default: 나는 한국인입니다.
+        type: string
+      - name: honorific
+        in: formData
+        description: Honorific language mode for Korean output. Set to true to use honorific (formal) Korean.
+        required: false
+        default: 'false'
+        type: string
+      - name: glossaryKey
+        in: formData
+        description: Glossary key to apply custom terminology during translation.
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Translation successful
+          schema:
+            $ref: '#/definitions/TranslationResponse'
+        '400':
+          description: Bad request — invalid parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized — invalid or missing credentials
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: Too many requests — rate limit exceeded
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+      - clientId: []
+      - clientSecret: []
+  /v1/language/translate:
+    post:
+      tags:
+      - Papago
+      summary: Papago SMT Translation
+      description: Translates text using Statistical Machine Translation (SMT). Accepts source and target language codes and the text to translate. Supports Korean, English, Japanese, Chinese (Simplified and Traditional).
+      operationId: papago.smt
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: source
+        in: formData
+        description: 'Source language code: ko (Korean), en (English), ja (Japanese), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional)'
+        required: true
+        default: ko
+        type: string
+      - name: target
+        in: formData
+        description: Target language code. Same possible values as source.
+        required: true
+        default: en
+        type: string
+      - name: text
+        in: formData
+        description: Text to translate. UTF-8 encoding only.
+        required: true
+        default: 나는 한국인입니다.
+        type: string
+      responses:
+        '200':
+          description: Translation successful
+          schema:
+            $ref: '#/definitions/TranslationResponse'
+        '400':
+          description: Bad request — invalid parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized — invalid or missing credentials
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+      - clientId: []
+      - clientSecret: []
+  /v1/krdict/romanization:
+    get:
+      tags:
+      - Papago
+      summary: Korean Name Romanization
+      description: Converts a Korean name written in Hangul to its romanized Latin-script equivalent. Returns both the official romanization (following current Korean romanization rules) and statistically common romanizations.
+      operationId: papago.romanization
+      consumes:
+      - plain/text
+      produces:
+      - application/json
+      parameters:
+      - name: query
+        in: query
+        description: Korean name in Hangul (UTF-8) to be romanized
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Romanization successful
+          schema:
+            $ref: '#/definitions/RomanizationResponse'
+        '400':
+          description: Bad request — invalid parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized — invalid or missing credentials
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+      - clientId: []
+      - clientSecret: []
+definitions:
+  TranslationResult:
+    type: object
+    description: Core translation data
+    properties:
+      srcLangType:
+        type: string
+        description: Detected or specified source language code
+        example: ko
+      tarLangType:
+        type: string
+        description: Target language code
+        example: en
+      translatedText:
+        type: string
+        description: The translated text output
+        example: I am Korean.
+      engineType:
+        type: string
+        description: Translation engine used (NMT or SMT)
+        example: NMT
+      pivot:
+        type: string
+        description: Pivot language used if translation went through an intermediate language
+        example: ''
+      dict:
+        type: object
+        description: Dictionary information (if applicable)
+      tarDict:
+        type: object
+        description: Target dictionary information (if applicable)
+  ErrorResponse:
+    type: object
+    description: API error response
+    properties:
+      errorCode:
+        type: string
+        description: Naver API error code
+        example: SE01
+      errorMessage:
+        type: string
+        description: Human-readable error description
+        example: Unsupported source language
+  RomanizationResult:
+    type: object
+    properties:
+      sFirstName:
+        type: string
+        description: Romanized first (family) name
+        example: Kim
+      aItems:
+        type: array
+        description: Array of romanization candidates with usage statistics
+        items:
+          $ref: '#/definitions/RomanizationItem'
+  RomanizationResponse:
+    type: object
+    description: Romanization result for a Korean name
+    properties:
+      aResult:
+        type: array
+        items:
+          $ref: '#/definitions/RomanizationResult'
+  TranslationResponse:
+    type: object
+    description: Successful translation result
+    properties:
+      message:
+        type: object
+        properties:
+          '@type':
+            type: string
+            example: response
+          '@service':
+            type: string
+            example: naverservice.nmt.proxy
+          '@version':
+            type: string
+            example: 1.0.0
+          result:
+            $ref: '#/definitions/TranslationResult'
+  RomanizationItem:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Romanized full name candidate
+        example: Gildong Hong
+      score:
+        type: number
+        description: Statistical usage score for this romanization
+        example: 99.9
+securityDefinitions:
+  clientId:
+    type: apiKey
+    name: X-Naver-Client-Id
+    in: header
+    description: Client ID issued when registering an application on the Naver Developer Center.
+  clientSecret:
+    type: apiKey
+    name: X-Naver-Client-Secret
+    in: header
+    description: Client secret issued when registering an application on the Naver Developer Center.
+externalDocs:
+  description: Naver Papago Developer Guide
+  url: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
