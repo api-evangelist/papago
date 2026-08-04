@@ -1,0 +1,14 @@
+{
+  "provider": "papago",
+  "sources": [
+    "papago-papago-api-openapi.yml"
+  ],
+  "outputs": [
+    "papago-papago-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
