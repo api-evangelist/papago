@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Translation Papago API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Papago",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Papago NMT Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/papago/n2mt"
+          },
+          "docs": "Translates text using Neural Machine Translation (NMT). Accepts source and target language codes along with the text to translate. Supports Korean, English, Japanese, Chinese (Simplified and Traditional), Vietnamese, Thai, Indonesian, French, Spanish, Russian, German, and Italian — up to 5,000 characters per request."
+        },
+        {
+          "info": {
+            "name": "Papago SMT Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/language/translate"
+          },
+          "docs": "Translates text using Statistical Machine Translation (SMT). Accepts source and target language codes and the text to translate. Supports Korean, English, Japanese, Chinese (Simplified and Traditional)."
+        },
+        {
+          "info": {
+            "name": "Korean Name Romanization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/krdict/romanization",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Korean name in Hangul (UTF-8) to be romanized"
+              }
+            ]
+          },
+          "docs": "Converts a Korean name written in Hangul to its romanized Latin-script equivalent. Returns both the official romanization (following current Korean romanization rules) and statistically common romanizations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

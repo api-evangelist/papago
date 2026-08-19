@@ -1,0 +1,1018 @@
+{
+  "item": [
+    {
+      "id": "172fb86a-6ecb-423f-a13c-1e3e3c85ece2",
+      "name": "Papago",
+      "description": {
+        "content": "Naver Machine Learning Translation APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68e33fc7-1d42-465f-8942-564314fc4460",
+          "name": "Papago NMT Translation",
+          "request": {
+            "name": "Papago NMT Translation",
+            "description": {
+              "content": "Translates text using Neural Machine Translation (NMT). Accepts source and target language codes along with the text to translate. Supports Korean, English, Japanese, Chinese (Simplified and Traditional), Vietnamese, Thai, Indonesian, French, Spanish, Russian, German, and Italian — up to 5,000 characters per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "papago",
+                "n2mt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Naver-Client-Id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "ko",
+                  "description": "(Required) Source language code. Examples: ko (Korean), en (English), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional), ja (Japanese), vi (Vietnamese), th (Thai), id (Indonesian), fr (French), es (Spanish), ru (Russian), de (German), it (Italian)"
+                },
+                {
+                  "disabled": false,
+                  "key": "target",
+                  "value": "en",
+                  "description": "(Required) Target language code. Same possible values as source. Must form a supported language pair."
+                },
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "나는 한국인입니다.",
+                  "description": "(Required) Text to translate. UTF-8 encoding only. Maximum 5,000 characters per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "honorific",
+                  "value": "false",
+                  "description": "Honorific language mode for Korean output. Set to true to use honorific (formal) Korean."
+                },
+                {
+                  "disabled": false,
+                  "key": "glossaryKey",
+                  "value": "<string>",
+                  "description": "Glossary key to apply custom terminology during translation."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19080aac-3af6-4f3a-9581-99c89b9830cc",
+              "name": "Translation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "papago",
+                    "n2mt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code. Examples: ko (Korean), en (English), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional), ja (Japanese), vi (Vietnamese), th (Thai), id (Indonesian), fr (French), es (Spanish), ru (Russian), de (German), it (Italian)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source. Must form a supported language pair.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only. Maximum 5,000 characters per request.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Honorific language mode for Korean output. Set to true to use honorific (formal) Korean.",
+                        "type": "text/plain"
+                      },
+                      "key": "honorific",
+                      "value": "false"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Glossary key to apply custom terminology during translation.",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryKey",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": {\n    \"@type\": \"response\",\n    \"@service\": \"naverservice.nmt.proxy\",\n    \"@version\": \"1.0.0\",\n    \"result\": {\n      \"srcLangType\": \"ko\",\n      \"tarLangType\": \"en\",\n      \"translatedText\": \"I am Korean.\",\n      \"engineType\": \"NMT\",\n      \"pivot\": \"\",\n      \"dict\": {},\n      \"tarDict\": {}\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fbd6745-6d39-4a37-b038-b5f035d3d1fb",
+              "name": "Bad request — invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "papago",
+                    "n2mt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code. Examples: ko (Korean), en (English), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional), ja (Japanese), vi (Vietnamese), th (Thai), id (Indonesian), fr (French), es (Spanish), ru (Russian), de (German), it (Italian)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source. Must form a supported language pair.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only. Maximum 5,000 characters per request.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Honorific language mode for Korean output. Set to true to use honorific (formal) Korean.",
+                        "type": "text/plain"
+                      },
+                      "key": "honorific",
+                      "value": "false"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Glossary key to apply custom terminology during translation.",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryKey",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e2f2c41-38c8-4538-bd5b-db2aab64b3e4",
+              "name": "Unauthorized — invalid or missing credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "papago",
+                    "n2mt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code. Examples: ko (Korean), en (English), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional), ja (Japanese), vi (Vietnamese), th (Thai), id (Indonesian), fr (French), es (Spanish), ru (Russian), de (German), it (Italian)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source. Must form a supported language pair.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only. Maximum 5,000 characters per request.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Honorific language mode for Korean output. Set to true to use honorific (formal) Korean.",
+                        "type": "text/plain"
+                      },
+                      "key": "honorific",
+                      "value": "false"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Glossary key to apply custom terminology during translation.",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryKey",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68310525-9b0e-48ed-a1bd-b5e02e7c0c74",
+              "name": "Too many requests — rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "papago",
+                    "n2mt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code. Examples: ko (Korean), en (English), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional), ja (Japanese), vi (Vietnamese), th (Thai), id (Indonesian), fr (French), es (Spanish), ru (Russian), de (German), it (Italian)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source. Must form a supported language pair.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only. Maximum 5,000 characters per request.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Honorific language mode for Korean output. Set to true to use honorific (formal) Korean.",
+                        "type": "text/plain"
+                      },
+                      "key": "honorific",
+                      "value": "false"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Glossary key to apply custom terminology during translation.",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryKey",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef6078b9-2093-41e4-bbc9-cc13226be6f2",
+          "name": "Papago SMT Translation",
+          "request": {
+            "name": "Papago SMT Translation",
+            "description": {
+              "content": "Translates text using Statistical Machine Translation (SMT). Accepts source and target language codes and the text to translate. Supports Korean, English, Japanese, Chinese (Simplified and Traditional).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "language",
+                "translate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Naver-Client-Id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "ko",
+                  "description": "(Required) Source language code: ko (Korean), en (English), ja (Japanese), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "target",
+                  "value": "en",
+                  "description": "(Required) Target language code. Same possible values as source."
+                },
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "나는 한국인입니다.",
+                  "description": "(Required) Text to translate. UTF-8 encoding only."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20a29480-9715-426c-a337-0a56ec86fee5",
+              "name": "Translation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "language",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code: ko (Korean), en (English), ja (Japanese), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": {\n    \"@type\": \"response\",\n    \"@service\": \"naverservice.nmt.proxy\",\n    \"@version\": \"1.0.0\",\n    \"result\": {\n      \"srcLangType\": \"ko\",\n      \"tarLangType\": \"en\",\n      \"translatedText\": \"I am Korean.\",\n      \"engineType\": \"NMT\",\n      \"pivot\": \"\",\n      \"dict\": {},\n      \"tarDict\": {}\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de8a50f4-0874-435d-9b3a-91e8fe892e08",
+              "name": "Bad request — invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "language",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code: ko (Korean), en (English), ja (Japanese), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13e0bbd7-5ac9-46ec-8f16-6566845ca2f2",
+              "name": "Unauthorized — invalid or missing credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "language",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Source language code: ko (Korean), en (English), ja (Japanese), zh-CN (Chinese Simplified), zh-TW (Chinese Traditional)",
+                        "type": "text/plain"
+                      },
+                      "key": "source",
+                      "value": "ko"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Target language code. Same possible values as source.",
+                        "type": "text/plain"
+                      },
+                      "key": "target",
+                      "value": "en"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Text to translate. UTF-8 encoding only.",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "나는 한국인입니다."
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "464f70f4-fda0-4fe9-a1db-a823bcd8a069",
+          "name": "Korean Name Romanization",
+          "request": {
+            "name": "Korean Name Romanization",
+            "description": {
+              "content": "Converts a Korean name written in Hangul to its romanized Latin-script equivalent. Returns both the official romanization (following current Korean romanization rules) and statistically common romanizations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "krdict",
+                "romanization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Korean name in Hangul (UTF-8) to be romanized"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Naver-Client-Id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6228058c-5d9c-4512-a776-ae746d3544b3",
+              "name": "Romanization successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "krdict",
+                    "romanization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"aResult\": [\n    {\n      \"sFirstName\": \"Kim\",\n      \"aItems\": [\n        {\n          \"name\": \"Gildong Hong\",\n          \"score\": 99.9\n        },\n        {\n          \"name\": \"Gildong Hong\",\n          \"score\": 99.9\n        }\n      ]\n    },\n    {\n      \"sFirstName\": \"Kim\",\n      \"aItems\": [\n        {\n          \"name\": \"Gildong Hong\",\n          \"score\": 99.9\n        },\n        {\n          \"name\": \"Gildong Hong\",\n          \"score\": 99.9\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64894a46-8222-4f34-87d8-dc1bf038e15c",
+              "name": "Bad request — invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "krdict",
+                    "romanization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3a45d4b-aa9e-464b-a8d3-8fa40bc96928",
+              "name": "Unauthorized — invalid or missing credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "krdict",
+                    "romanization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Naver-Client-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"SE01\",\n  \"errorMessage\": \"Unsupported source language\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.naver.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5275cfad-88a2-4c64-bdad-439fb5858127",
+    "name": "Translation Papago API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Naver Papago translation REST API for translating text between Korean, English, Japanese, Chinese, and other Asian and European languages using Neural Machine Translation (NMT) algorithms. Supports text translation, language detection, and romanization of Korean names.\n\nContact Support:\n Name: Naver Cloud Platform Support",
+      "type": "text/plain"
+    }
+  }
+}
