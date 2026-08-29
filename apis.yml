@@ -5,6 +5,18 @@ description: Naver Papago translation REST API for translating text between Kore
   Machine Translation (NMT) algorithms. The service offers text translation, document
   translation, website translation, language detection, and glossary management, supporting
   29 language pairs with high accuracy and no data retention for user privacy.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
