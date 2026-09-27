@@ -169,6 +169,14 @@ paths:
       - clientSecret: []
 components:
   schemas:
+    RomanizationResponse:
+      type: object
+      description: Romanization result for a Korean name
+      properties:
+        aResult:
+          type: array
+          items:
+            $ref: '#/components/schemas/RomanizationResult'
     TranslationResult:
       type: object
       description: Core translation data
@@ -199,18 +207,17 @@ components:
         tarDict:
           type: object
           description: Target dictionary information (if applicable)
-    ErrorResponse:
+    RomanizationItem:
       type: object
-      description: API error response
       properties:
-        errorCode:
+        name:
           type: string
-          description: Naver API error code
-          example: SE01
-        errorMessage:
-          type: string
-          description: Human-readable error description
-          example: Unsupported source language
+          description: Romanized full name candidate
+          example: Gildong Hong
+        score:
+          type: number
+          description: Statistical usage score for this romanization
+          example: 99.9
     RomanizationResult:
       type: object
       properties:
@@ -223,25 +230,6 @@ components:
           description: Array of romanization candidates with usage statistics
           items:
             $ref: '#/components/schemas/RomanizationItem'
-    RomanizationResponse:
-      type: object
-      description: Romanization result for a Korean name
-      properties:
-        aResult:
-          type: array
-          items:
-            $ref: '#/components/schemas/RomanizationResult'
-    RomanizationItem:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Romanized full name candidate
-          example: Gildong Hong
-        score:
-          type: number
-          description: Statistical usage score for this romanization
-          example: 99.9
     TranslationResponse:
       type: object
       description: Successful translation result
@@ -260,6 +248,18 @@ components:
               example: 1.0.0
             result:
               $ref: '#/components/schemas/TranslationResult'
+    ErrorResponse:
+      type: object
+      description: API error response
+      properties:
+        errorCode:
+          type: string
+          description: Naver API error code
+          example: SE01
+        errorMessage:
+          type: string
+          description: Human-readable error description
+          example: Unsupported source language
   securitySchemes:
     clientId:
       type: apiKey
