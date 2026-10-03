@@ -177,6 +177,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RomanizationResult'
+    RomanizationItem:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Romanized full name candidate
+          example: Gildong Hong
+        score:
+          type: number
+          description: Statistical usage score for this romanization
+          example: 99.9
+    ErrorResponse:
+      type: object
+      description: API error response
+      properties:
+        errorCode:
+          type: string
+          description: Naver API error code
+          example: SE01
+        errorMessage:
+          type: string
+          description: Human-readable error description
+          example: Unsupported source language
     TranslationResult:
       type: object
       description: Core translation data
@@ -207,17 +230,6 @@ components:
         tarDict:
           type: object
           description: Target dictionary information (if applicable)
-    RomanizationItem:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Romanized full name candidate
-          example: Gildong Hong
-        score:
-          type: number
-          description: Statistical usage score for this romanization
-          example: 99.9
     RomanizationResult:
       type: object
       properties:
@@ -248,18 +260,6 @@ components:
               example: 1.0.0
             result:
               $ref: '#/components/schemas/TranslationResult'
-    ErrorResponse:
-      type: object
-      description: API error response
-      properties:
-        errorCode:
-          type: string
-          description: Naver API error code
-          example: SE01
-        errorMessage:
-          type: string
-          description: Human-readable error description
-          example: Unsupported source language
   securitySchemes:
     clientId:
       type: apiKey
