@@ -169,25 +169,24 @@ paths:
       - clientSecret: []
 components:
   schemas:
-    RomanizationResponse:
+    TranslationResponse:
       type: object
-      description: Romanization result for a Korean name
+      description: Successful translation result
       properties:
-        aResult:
-          type: array
-          items:
-            $ref: '#/components/schemas/RomanizationResult'
-    RomanizationItem:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Romanized full name candidate
-          example: Gildong Hong
-        score:
-          type: number
-          description: Statistical usage score for this romanization
-          example: 99.9
+        message:
+          type: object
+          properties:
+            '@type':
+              type: string
+              example: response
+            '@service':
+              type: string
+              example: naverservice.nmt.proxy
+            '@version':
+              type: string
+              example: 1.0.0
+            result:
+              $ref: '#/components/schemas/TranslationResult'
     ErrorResponse:
       type: object
       description: API error response
@@ -242,24 +241,25 @@ components:
           description: Array of romanization candidates with usage statistics
           items:
             $ref: '#/components/schemas/RomanizationItem'
-    TranslationResponse:
+    RomanizationResponse:
       type: object
-      description: Successful translation result
+      description: Romanization result for a Korean name
       properties:
-        message:
-          type: object
-          properties:
-            '@type':
-              type: string
-              example: response
-            '@service':
-              type: string
-              example: naverservice.nmt.proxy
-            '@version':
-              type: string
-              example: 1.0.0
-            result:
-              $ref: '#/components/schemas/TranslationResult'
+        aResult:
+          type: array
+          items:
+            $ref: '#/components/schemas/RomanizationResult'
+    RomanizationItem:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Romanized full name candidate
+          example: Gildong Hong
+        score:
+          type: number
+          description: Statistical usage score for this romanization
+          example: 99.9
   securitySchemes:
     clientId:
       type: apiKey
