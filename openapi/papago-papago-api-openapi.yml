@@ -169,36 +169,18 @@ paths:
       - clientSecret: []
 components:
   schemas:
-    TranslationResponse:
+    RomanizationResult:
       type: object
-      description: Successful translation result
       properties:
-        message:
-          type: object
-          properties:
-            '@type':
-              type: string
-              example: response
-            '@service':
-              type: string
-              example: naverservice.nmt.proxy
-            '@version':
-              type: string
-              example: 1.0.0
-            result:
-              $ref: '#/components/schemas/TranslationResult'
-    ErrorResponse:
-      type: object
-      description: API error response
-      properties:
-        errorCode:
+        sFirstName:
           type: string
-          description: Naver API error code
-          example: SE01
-        errorMessage:
-          type: string
-          description: Human-readable error description
-          example: Unsupported source language
+          description: Romanized first (family) name
+          example: Kim
+        aItems:
+          type: array
+          description: Array of romanization candidates with usage statistics
+          items:
+            $ref: '#/components/schemas/RomanizationItem'
     TranslationResult:
       type: object
       description: Core translation data
@@ -229,26 +211,24 @@ components:
         tarDict:
           type: object
           description: Target dictionary information (if applicable)
-    RomanizationResult:
+    TranslationResponse:
       type: object
+      description: Successful translation result
       properties:
-        sFirstName:
-          type: string
-          description: Romanized first (family) name
-          example: Kim
-        aItems:
-          type: array
-          description: Array of romanization candidates with usage statistics
-          items:
-            $ref: '#/components/schemas/RomanizationItem'
-    RomanizationResponse:
-      type: object
-      description: Romanization result for a Korean name
-      properties:
-        aResult:
-          type: array
-          items:
-            $ref: '#/components/schemas/RomanizationResult'
+        message:
+          type: object
+          properties:
+            '@type':
+              type: string
+              example: response
+            '@service':
+              type: string
+              example: naverservice.nmt.proxy
+            '@version':
+              type: string
+              example: 1.0.0
+            result:
+              $ref: '#/components/schemas/TranslationResult'
     RomanizationItem:
       type: object
       properties:
@@ -260,6 +240,26 @@ components:
           type: number
           description: Statistical usage score for this romanization
           example: 99.9
+    ErrorResponse:
+      type: object
+      description: API error response
+      properties:
+        errorCode:
+          type: string
+          description: Naver API error code
+          example: SE01
+        errorMessage:
+          type: string
+          description: Human-readable error description
+          example: Unsupported source language
+    RomanizationResponse:
+      type: object
+      description: Romanization result for a Korean name
+      properties:
+        aResult:
+          type: array
+          items:
+            $ref: '#/components/schemas/RomanizationResult'
   securitySchemes:
     clientId:
       type: apiKey
