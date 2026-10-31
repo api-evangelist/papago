@@ -66,25 +66,149 @@
 
 Naver Papago translation REST API for translating text between Korean, English, Japanese, Chinese, and other Asian and European languages using Neural Machine Translation (NMT) algorithms. The service offers text translation, document translation, website translation, language detection, and glossary management, supporting 29 language pairs with high accuracy and no data retention for user privacy.
 
-## APIs
+**Areas:** Translation · Natural Language Processing · Machine Translation · Neural Machine Translation · Korean · Asian Languages · Localization · Language Detection
 
-- **Papago NMT Translation API** - Neural Machine Translation for text, supporting 29 language pairs and up to 5,000 characters per request.
-- **Papago Language Detection API** - Automatic language identification for 15 languages, provided at no charge.
-- **Papago Document Translation API** - Translates documents (DOCX, PPTX, XLSX, PDF, HWP) up to 100 MB while preserving layout.
-- **Papago Website Translation API** - HTML and web content translation with proprietary tag restoration technology.
-- **Papago Glossary API** - Custom terminology dictionary management for consistent domain-specific translations.
+## Papago on APIs.io
 
-## Resources
+Everything profiled for Papago is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/papago/](https://apis.io/providers/papago/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Papago Language Detection API](https://apis.io/apis/papago/papago-language-detection/) — Automatically detects the language of input text, supporting 15 languages including Korean, English, Japanese, Chinese, Vietnamese, Thai, Indonesian,…
+- [Papago Document Translation API](https://apis.io/apis/papago/papago-document-translation/) — Translates documents while preserving their original layout, supporting MS Office formats (DOCX, PPTX, XLSX), PDF, and Korean Hangul (HWP v5.0+) files up to…
+- [Papago Website Translation API](https://apis.io/apis/papago/papago-website-translation/) — Detects and translates HTML documents and web elements using proprietary tag restoration technology for improved translation accuracy across websites and…
+- [Papago Glossary API](https://apis.io/apis/papago/papago-glossary/) — Manages custom terminology dictionaries for contextually appropriate translations. Allows registration and retrieval of glossaries with up to 20 terms per…
+- [Papago API](https://apis.io/apis/papago/papago-papago-api/) — Naver Machine Learning Translation APIs
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Papago Agentic Access](https://apis.io/agentic-access/papago/papago-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [RomanizationResponse](https://apis.io/schemas/papago/romanization-response/)
+- [TranslationRequest](https://apis.io/schemas/papago/translation-request/)
+- [TranslationResponse](https://apis.io/schemas/papago/translation-response/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [context Context](https://apis.io/jsonld/papago/context/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Nmt Translation Request](https://apis.io/examples/papago/nmt-translation-request/)
+- [Nmt Translation Response](https://apis.io/examples/papago/nmt-translation-response/)
+- [Romanization Request](https://apis.io/examples/papago/romanization-request/)
+- [Romanization Response](https://apis.io/examples/papago/romanization-response/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Translation Papago API](https://apis.io/collections/papago/open-papago-papago-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Papago — jsonschema rules](https://apis.io/rules/papago/papago-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Papago Authentication](https://apis.io/security/papago/papago-authentication/)
+- [Papago Domain Security](https://apis.io/security/papago/papago-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/papago/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/papago/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/papago/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.ncloud.com/v2/product/aiService/papagoTranslation)
 - [Documentation](https://guide.ncloud-docs.com/docs/en/papagotranslation-overview)
-- [API Reference](https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt)
-- [GitHub](https://github.com/NaverCloudPlatform)
-- [Blog](https://medium.com/naver-cloud)
 - [Pricing](https://www.ncloud.com/charge/calc)
-- [Status Page](https://www.ncloud.com/v2/serviceStatus)
-- [LinkedIn](https://www.linkedin.com/company/navercloud)
+- [Blog](https://medium.com/naver-cloud)
+- [Status](https://www.ncloud.com/v2/serviceStatus)
 
-## Maintainers
+## API Evangelist rating
 
-**Kin Lane** - kin@apievangelist.com
+**Kin Score 33.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 55.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
+
+**Agent readiness 25.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/papago/](https://apis.io/providers/papago/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Papago: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/papago/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
